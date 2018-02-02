@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Search and Replace</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+          <div class="form-group">
+            <label for="original">Original Text</label>
+            <input type="text" class="form-control" id="original" value="The brown dog and the white dog">
+          </div>
+          <div class="form-group">
+            <label for="searchText">Text to Search</label>
+            <input type="text" class="form-control" id="searchText" value="dog">
+          </div>
+          <div class="form-group">
+            <label for="replacementText">Replacement Text</label>
+            <input type="text" class="form-control" id="replacementText" value="cat">
+          </div>
+          <button id="submit">Submit</button>
+        </div>
+        <div id="output-box">
+          <h2>Output:</h2>
+          <p id="output"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+      </script>
+  <script src="app1.js"></script>
+</body>
+</html>
