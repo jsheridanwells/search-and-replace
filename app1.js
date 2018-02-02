@@ -1,11 +1,7 @@
 'use strict';
 
 const searchAndReplace = (original, searchText, replaceText) => {
-  let origArr = original.split('');
-  let searchArr = searchText.split('');
-  let matchArr = [];
-  let output = [];
-
+  
   for (let i = 0; i < original.length; i++) {
     if (original[i] === searchText[0]) {
       let j = 0;
