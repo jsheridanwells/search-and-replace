@@ -1,27 +1,38 @@
 'use strict';
 
 const searchAndReplace = (original, searchText, replaceText) => {
-  
-  for (let i = 0; i < original.length; i++) {
-    if (original[i] === searchText[0]) {
+  // create an array from the text to search
+  let textArr = original.split('');
+  // iterate over every item in the textArr array
+  textArr.forEach((char, i) => {
+    // if a character matches the first letter in the search text
+    if (char === searchText[0]) {
+      // compare the subsequent characters in textArr 
+      //to the characters in searchText
       let j = 0;
-      let start = i;
-      let end = 0;
-      while (original[i + j] === searchText[j]) {
+      let compareText = '';
+      while (textArr[i + j] === searchText[j]) {
+        // add equivalent characters to compareText
         compareText += searchText[j];
         j++;
       }
-      if (searchText === compareText) {
-        end = i +j;
+      // check if compareText is equal to searchText
+      if (compareText === searchText) {
+        //if so, remove searchText from the text array
+        // insert replaceText
+        textArr.splice(i, searchText.length, replaceText);
       }
     }
-  }
-  
-
+  });
+  // join textArr to a new string and return it
+  return textArr.join('');
 };
 
 
 $('#submit').click(() => {
+  // check if any of the input values are empty
+  // prompt the user to enter values in any blank fields
+  // if no fields are empty, run the searchAndReplace() function
   if (
     $('#original').val() === '' ||
     $('#searchText').val() === '' ||
@@ -29,19 +40,12 @@ $('#submit').click(() => {
   ) {
     $('#output').html('Please enter a value in all of the fields');
   } else {
-    searchAndReplace(
-      $('#original').val(),
-      $('#searchText').val(),
-      $('#replacementText').val()
+    $('#output').html(
+      searchAndReplace(
+        $('#original').val(), 
+        $('#searchText').val(),
+        $('#replacementText').val()
+      )
     );
   }
 });
-
-
-// iterate through all the characters in original
-    // if original[char] matches search[char]
-      // hold the index value of original[char]
-      //look if original[char+1] matches search[char + 1]
-        // if they also match
-          // add search[char + 1] to test string
-        //if test string matches search string
